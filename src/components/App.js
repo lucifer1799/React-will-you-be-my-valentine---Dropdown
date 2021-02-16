@@ -160,31 +160,33 @@ function App()
   }
 	return (
 	<div id="main">
-    
-      <div id='#state-name'>{states[state].name}</div>
-      <div id='#state-description'>{states[state].description}</div>
-    
-      <div id='#city-name'>{states[state].city[city].name}</div>
-      <div id='#city-description'>{states[state].city[city].description}</div>
-    
-      <div id='#landmark-name'>{states[state].city[city].landmarks[landmark].name}</div>
-      <div id='#landmark-description'>{states[state].city[city].landmarks[landmark].description}</div>
-   
-    <select id={states[state].name} data-testid='state' className='state' name='state' value={state} onChange={handleChange}>
-      {states.map((itm,idx)=>(
-        <option key={idx} value={idx}>{itm.name}</option>
-      ))}
-    </select>
-    <select id={states[state].city[city].name} data-testid='city' className='city' name='city' value={city} onChange={handleCity}>
-        {states[state].city.map((itm,idx)=>(
+
+      <select id='state' name='state' value={state} onChange={handleChange}>
+        {states.map((itm,idx)=>(
           <option key={idx} value={idx}>{itm.name}</option>
         ))}
-    </select>
-    <select id={states[state].city[city].landmarks[landmark].name} data-testid='landmark' className='landmark' value={landmark} onChange={handleLandmark}>
-      {states[state].city[city].landmarks.map((itm,idx)=>(
-        <option key={idx} value={idx}>{itm.name}</option>
-      ))}
-    </select>
+      </select>
+      <select id='city' name='city' value={city} onChange={handleCity}>
+          {states[state].city.map((itm,idx)=>(
+            <option key={idx} value={idx}>{itm.name}</option>
+          ))}
+      </select>
+      <select id='landmark' value={landmark} onChange={handleLandmark}>
+        {states[state].city[city].landmarks.map((itm,idx)=>(
+          <option key={idx} value={idx}>{itm.name}</option>
+        ))}
+      </select>
+    
+      <div id='state-name'>{states[state].name}</div>
+      <div id='state-description'>{states[state].description}</div>
+    
+      <div id='city-name'>{states[state].city[city].name}</div>
+      <div id='city-description'>{states[state].city[city].description}</div>
+    
+      <div id='landmark-name'>{states[state].city[city].landmarks[landmark].name}</div>
+      <div id='landmark-description'>{states[state].city[city].landmarks[landmark].description}</div>
+   
+    
 	</div>
 	);
 }
