@@ -159,7 +159,7 @@ function App()
     setLandmark(event.target.value);
   }
 	return (
-	<div id="main">
+	<>
 
       <select id='state' name='state' value={state} onChange={handleChange}>
         {states.map((itm,idx)=>(
@@ -187,7 +187,7 @@ function App()
       <div id='landmark-description'>{states[state].city[city].landmarks[landmark].description}</div>
    
     
-	</div>
+	</>
 	);
 }
 
