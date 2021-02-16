@@ -146,12 +146,14 @@ function App()
   const [landmark,setLandmark]=useState(0);
   function handleChange(event){
     const {value}=event.target;
-    console.log(value)
     setState(value)
+    setCity(0)
+    setLandmark(0)
     
   }
   function handleCity(event){
     setCity(event.target.value)
+    setLandmark(0)
   }
   function handleLandmark(event){
     setLandmark(event.target.value);
@@ -160,32 +162,32 @@ function App()
 	<div id="main" className='App'>
     
     <div>
-      <div id='state-name'>{states[state].name}</div>
-      <div id='state-description'>{states[state].description}</div>
+      <div id='#state-name'>{states[state].name}</div>
+      <div id='#state-description'>{states[state].description}</div>
     </div>
     <div>
-      <div id='city-name'>{states[state].city[city].name}</div>
-      <div id='city-description'>{states[state].city[city].description}</div>
+      <div id='#city-name'>{states[state].city[city].name}</div>
+      <div id='#city-description'>{states[state].city[city].description}</div>
     </div>
     <div>
-      <div id='landmark-name'>{states[state].city[city].landmarks[landmark].name}</div>
-      <div id='landmark-description'>{states[state].city[city].landmarks[landmark].description}</div>
+      <div id='#landmark-name'>{states[state].city[city].landmarks[landmark].name}</div>
+      <div id='#landmark-description'>{states[state].city[city].landmarks[landmark].description}</div>
     </div>
-    <select id='state' name='state' value={state} onChange={handleChange}>
+    <select id='#state' name='state' value={state} onChange={handleChange}>
       {states.map((itm,idx)=>(
         <option key={idx} value={idx}>{itm.name}</option>
       ))}
     </select>
     <br></br>
     <br></br>
-    <select id='city' name='city' value={city} onChange={handleCity}>
+    <select id='#city' name='city' value={city} onChange={handleCity}>
         {states[state].city.map((itm,idx)=>(
           <option key={idx} value={idx}>{itm.name}</option>
         ))}
     </select>
     <br></br>
     <br></br>
-    <select id='landmark' value={landmark} onChange={handleLandmark}>
+    <select id='#landmark' value={landmark} onChange={handleLandmark}>
       {states[state].city[city].landmarks.map((itm,idx)=>(
         <option key={idx} value={idx}>{itm.name}</option>
       ))}
