@@ -170,17 +170,17 @@ function App()
       <div id='#landmark-name'>{states[state].city[city].landmarks[landmark].name}</div>
       <div id='#landmark-description'>{states[state].city[city].landmarks[landmark].description}</div>
    
-    <select id='state' data-testid='state' className='state' name='state' value={state} onChange={handleChange}>
+    <select id={states[state].name} data-testid='state' className='state' name='state' value={state} onChange={handleChange}>
       {states.map((itm,idx)=>(
         <option key={idx} value={idx}>{itm.name}</option>
       ))}
     </select>
-    <select id='city' data-testid='city' className='city' name='city' value={city} onChange={handleCity}>
+    <select id={states[state].city[city].name} data-testid='city' className='city' name='city' value={city} onChange={handleCity}>
         {states[state].city.map((itm,idx)=>(
           <option key={idx} value={idx}>{itm.name}</option>
         ))}
     </select>
-    <select id='landmark' data-testid='landmark' className='landmark' value={landmark} onChange={handleLandmark}>
+    <select id={states[state].city[city].landmarks[landmark].name} data-testid='landmark' className='landmark' value={landmark} onChange={handleLandmark}>
       {states[state].city[city].landmarks.map((itm,idx)=>(
         <option key={idx} value={idx}>{itm.name}</option>
       ))}
